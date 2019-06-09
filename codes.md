@@ -7,44 +7,31 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-unsigned long long int p = 1000000007; 
-  
-/* Iterative Function to calculate (x^y)%p in O(log y) */
-unsigned long long int power(unsigned long long int x,  unsigned long long int y) 
-{ 
-   unsigned long long int res = 1;      // Initialize result 
-  
-    x = x % p;  // Update x if it is more than or  
-                // equal to p 
-  
-    while (y > 0) 
-    { 
-        // If y is odd, multiply x with result 
-        if (y & 1) 
-            res = (res*x) % p; 
-  
-        // y must be even now 
-        y = y>>1; // y = y/2 
-        x = (x*x) % p;   
-    } 
-    return res; 
-} 
-  
-// Driver program to test above functions 
-int main() 
-{ int t;
-  cin>>t;
-  
-  while(t--)
-  {
-   unsigned long long int x = 2; 
-   unsigned long long int y;
-   cin>>y;
-   y--;
- 
-   cout<< ((power(x, y)%p)*10)%p; 
-   
-   cout<<endl;
-  }
-   return 0; 
-} 
+typedef long long int ll; 
+ll mod=1e9+7;
+ll power(ll a,ll b)
+{
+    if(b==0) return 1;
+    else if(b%2==0)
+        return power(a*a%mod,b/2)%mod;
+    else return (a%mod*power(a*a%mod,b/2))%mod;
+}
+
+int main()
+{
+int t;
+cin>>t;
+
+while(t--)
+{
+   ll k;
+   cin>>k;
+   k--;
+   cout<<(power(2,k)*10)%mod;
+
+cout<<endl;
+
+}
+
+return 0;
+}
