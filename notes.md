@@ -65,7 +65,7 @@ char name[5][10]={
 ```
 
 # vectors
-```vector<int>v; ```      //creates an empty vector of integers)
+```vector<int>v;     //creates an empty vector of integers)
 int size=v.size();
 
 v.push_back(x);   //Pushing an integer into a vector
@@ -82,12 +82,24 @@ erase(int start,int end)  //Removes the elements in the range from start to end 
        Ex:v.erase(v.begin()+2,v.begin()+5);   (erases all the elements from the third element to the fifth element.)
  ```      
  ### to find all factors
- ``` 
- int rt=sqrt(min);
  
-  for(int j=1;j<=rt;j++)
-    {  
+ ``` 
+ void print_factors(int n)
+ {
+    for(int j=1;j*j<=n;j++)
+      {  
         if(min%j==0)
-       {   f1=j;  f2=min/j; }
-    }
+       {   f1=j;  f2=min/j; 
+       
+          cout<<f1<<" "<<f2<<" ";
+       }
+      }
+ }   
+```
+# auto
+If C++ already knows 5.0 is a double literal, why do we have to explicitly specify that d is actually a double? 
+Starting with C++11, the auto keyword does just that.
+```
+auto d = 5.0; // 5.0 is a double literal, so d will be type double
+auto i = 1 + 2; // 1 + 2 evaluates to an integer, so i will be type int
 ```
