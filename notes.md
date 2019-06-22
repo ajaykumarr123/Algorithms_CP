@@ -5,7 +5,6 @@
 
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
-   
    memset(arr, 0, sizeof(arr));
 ```c++
 
