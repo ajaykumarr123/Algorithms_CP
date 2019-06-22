@@ -1,10 +1,11 @@
 #### try stress test(algo. toolbox) to remove error
 ```#include <bits/stdc++.h> ```  //for everything
 
-```cout << fixed << setprecision(9);```  ///to change decimal precision - use once in beg. of main
+```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
 
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>):
    std::fill_n(arr, 100, 0); or
+   
    memset(arr, 0, sizeof(arr));
 ```c++
 
