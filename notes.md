@@ -6,6 +6,9 @@
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
    memset(arr, 0, sizeof(arr));
+   
+  * a x b = LCM(a, b) * GCD (a, b)
+  * LCM(a, b) = (a x b) / GCD(a, b) 
 ```c++
 
  #pragma GCC optimize("Ofast")
