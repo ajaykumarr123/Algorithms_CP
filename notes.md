@@ -107,3 +107,9 @@ Starting with C++11, the auto keyword does just that.
 auto d = 5.0; // 5.0 is a double literal, so d will be type double
 auto i = 1 + 2; // 1 + 2 evaluates to an integer, so i will be type int
 ```
+# 2-d vector
+```
+vector<int> pos[26];
+	forn(i, n)
+		pos[s[i] - 'a'].push_back(i + 1);
+```	
