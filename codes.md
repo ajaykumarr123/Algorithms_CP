@@ -1,3 +1,43 @@
+## Greedy common([CANDIES](https://www.hackerrank.com/challenges/candies/editorial))
+```
+ #include <bits/stdc++.h>
+ #define forn(i,n) for(int i=0;i<n;i++)
+ #define forrev(n,i) for(int i=n;i>0;i--)
+ typedef long long int ll;
+ using namespace std;
+int main()
+{    int n;
+     cin>>n;
+    int a[n],v[n];
+    forn(i,n) cin>>a[i];
+   
+    v[0]=1;
+    forn(i,n-1){                   // for rise
+     if(a[i+1]>a[i])
+      v[i+1]=v[i]+1;
+
+      else
+      v[i+1]=1;  		//for valley
+  }
+    ll ans=v[n-1];
+    v[n-1]=1;
+    
+    forrev(n-1,i){              // for fall
+       int tmp;
+       if(a[i-1]>a[i])
+       tmp=v[i]+1;
+
+       else
+         tmp=1;
+
+         ans+=max(tmp,v[i-1]);         //for peak
+         
+         v[i-1]=tmp;
+    } 
+     cout<<ans;
+ return 0;}
+
+```
 ## Road Signs  ([june long](https://www.codechef.com/JUNE19))
 ### Modular Exponentation [gfg](https://www.geeksforgeeks.org/modular-exponentiation-power-in-modular-arithmetic/)  [ytb](https://www.youtube.com/watch?v=EHUgNLN8F1Y)
 ```
