@@ -159,10 +159,10 @@ erase(const g)– Removes the key value ‘g’ from the map
 clear() – Removes all the elements from the map
 
 
-  map<int, int> mp;  //declaration 
+  map<int, int> mp;  //declaration    
   
    // insert elements in random order 
-    mp.insert({ 2, 30 }); 
+    mp.insert({ 2, 30 });                   or  *** mp[2]=30;  ****
    
    map<int, int>::iterator itr; 
     cout << "\nThe map gquiz1 is : \n"; 
@@ -175,26 +175,7 @@ clear() – Removes all the elements from the map
     
     // remove all elements with key = 4 
     int num; 
-    num = gquiz2.erase(4); 
-    
-**** // no need to insert every time --can be used as array of random size   
-map<int,long long> mm;
-int n,p,K,a[N];
-long long Ans;
-int main(){
-	scanf("%d%d%d",&n,&p,&K);
-	for(int i=1;i<=n;i++){
-		scanf("%d",&a[i]);
-		a[i]=(1ll*a[i]*a[i]%p*a[i]%p*a[i]%p-1ll*K*a[i]%p+p)%p;
-		if(mm.count(a[i])){
-			Ans+=mm[a[i]];
-			mm[a[i]]++;
-		}
-		else mm[a[i]]=1;
-	}
-	printf("%lld\n",Ans);
-	return 0;
-}
+    num = gquiz2.erase(4);     
 ```
 
 ## [Tuple](https://www.geeksforgeeks.org/tuples-in-c/)  
