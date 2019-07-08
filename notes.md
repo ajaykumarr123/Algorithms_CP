@@ -116,11 +116,47 @@ vector<int> pos[26];
 ```
 
 # Map,Pair,Tuple
+## [Map](https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/)
+```  
+begin() – Returns an iterator to the first element in the map
+end() – Returns an iterator to the theoretical element that follows last element in the map
+size() – Returns the number of elements in the map
+empty() – Returns whether the map is empty
+insert(keyvalue, mapvalue) – Adds a new element to the map
+erase(iterator position) – Removes the element at the position pointed by the iterator
+erase(const g)– Removes the key value ‘g’ from the map
+clear() – Removes all the elements from the map
 
-### [Tuple](https://www.geeksforgeeks.org/tuples-in-c/)  
+
+  map<int, int> mp;  //declaration 
+  
+   // insert elements in random order 
+    mp.insert({ 2, 30 }); 
+   
+   map<int, int>::iterator itr; 
+    cout << "\nThe map gquiz1 is : \n"; 
+    for (itr = gquiz1.begin(); itr != gquiz1.end(); ++itr) { 
+        cout<< itr->first << '\t' << itr->second << '\n'; 
+    } 
+
+    // assigning the elements from gquiz1 to gquiz2 
+    map<int, int> gquiz2(gquiz1.begin(), gquiz1.end());
+    
+    // remove all elements with key = 4 
+    int num; 
+    num = gquiz2.erase(4); 
+```
+
+
+## [Tuple](https://www.geeksforgeeks.org/tuples-in-c/)  
 (check knapsack code-github)  </br>
-tuple<int,string,double> tu;  // declaration  </br>
 
 1. get() :- get() is used to access the tuple values and modify them, it accepts the index and tuple name as arguments to access a particular tuple element.
 2. make_tuple() :- make_tuple() is used to assign tuple with values. The values passed should be in order with the values declared in tuple.
+```
+     tuple <char, int, float> geek; //declaration
+  
+    // Assigning values to tuple using make_tuple() 
+    geek = make_tuple('a', 10, 15.5); 
+ ```
 
