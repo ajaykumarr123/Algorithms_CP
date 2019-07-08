@@ -116,6 +116,40 @@ vector<int> pos[26];
 ```
 
 # Map,Pair,Tuple
+
+## Pair
+```
+pair  g1;         //default
+pair  g2(1, 'a');  //initialized,  different data type
+pair  g3(1, 10);   //initialized,  same data type
+pair  g4(g3);    //copy of g3
+Another way to initialize a pair is by using the make_pair() function.
+g2 = make_pair(1, 'a');
+
+    g1.first = 100; 
+    g1.second = 'G' ; 
+  
+    cout << g1.first << " " <<g1.second; 
+```
+#### vector of Pairs(array) [link](https://www.geeksforgeeks.org/sorting-vector-of-pairs-in-c-set-1-sort-by-first-and-second/)
+```
+// Declaring vector of pairs 
+    vector< pair <int,int> > vect; 
+
+    // Entering values in vector of pairs 
+    for (int i=0; i<n; i++) 
+        vect.push_back( make_pair(arr[i],arr1[i]) ); 
+  
+    // Printing the original vector(before sort()) 
+    cout << "The vector before sort operation is:\n" ; 
+    for (int i=0; i<n; i++) 
+        cout << vect[i].first << " "<< vect[i].second; 
+    //Sorting the vector elements on the basis of 
+    sort(vect.begin(),vect.end());		//first element of pairs in ascending order
+    
+    sort(vect.begin(), vect.end(), sortbysec);    //second element of pairs in ascending order
+```
+
 ## [Map](https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/)
 ```  
 begin() – Returns an iterator to the first element in the map
@@ -165,7 +199,6 @@ int main(){
 	return 0;
 }
 ```
-
 
 ## [Tuple](https://www.geeksforgeeks.org/tuples-in-c/)  
 (check knapsack code-github)  </br>
