@@ -118,7 +118,7 @@ vector<int> pos[26];
 # Map,Pair,Tuple
 
 ### [Tuple](https://www.geeksforgeeks.org/tuples-in-c/)  
-(check knapsack code-github)
+(check knapsack code-github)  </br>
 tuple<int,string,double> tu;  // declaration  </br>
 
 1. get() :- get() is used to access the tuple values and modify them, it accepts the index and tuple name as arguments to access a particular tuple element.
