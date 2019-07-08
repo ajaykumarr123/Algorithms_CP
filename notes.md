@@ -136,18 +136,15 @@ g2 = make_pair(1, 'a');
 // Declaring vector of pairs 
     vector< pair <int,int> > vect; 
 
-    // Entering values in vector of pairs 
-    for (int i=0; i<n; i++) 
+    for (int i=0; i<n; i++)                      // Entering values in vector of pairs           
         vect.push_back( make_pair(arr[i],arr1[i]) ); 
-  
-    // Printing the original vector(before sort()) 
-    cout << "The vector before sort operation is:\n" ; 
-    for (int i=0; i<n; i++) 
+ 
+    for (int i=0; i<n; i++) 			  // Printing the original vector(before sort()) 
         cout << vect[i].first << " "<< vect[i].second; 
+	
     //Sorting the vector elements on the basis of 
-    sort(vect.begin(),vect.end());		//first element of pairs in ascending order
-    
-    sort(vect.begin(), vect.end(), sortbysec);    //second element of pairs in ascending order
+   	 sort(vect.begin(),vect.end());		//first element of pairs in ascending order
+    	 sort(vect.begin(), vect.end(), sortbysec);    //second element of pairs in ascending order
 ```
 
 ## [Map](https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/)
