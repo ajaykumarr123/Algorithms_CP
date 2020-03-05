@@ -184,7 +184,7 @@ int main() {
 	return 0;
 }
 ```
-### dp parenthesis couresera
+### dp parenthesis coursera
 ```
 #include <iostream>
 #include <cassert>
