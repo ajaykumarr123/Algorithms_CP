@@ -1,5 +1,7 @@
+### [DP with Bitsmask](https://codingblocks.com/resources/dp-webinar2/)
+#####  [Tshirts](https://www.codechef.com/problems/TSHIRTS)
+
 #### Try stress test(algo. toolbox) to remove error
-```#include <bits/stdc++.h> ```  //for everything
 
 ```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
 * [Trie](https://www.geeksforgeeks.org/trie-insert-and-search/)
