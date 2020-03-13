@@ -6,9 +6,9 @@
 ```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
 * [Trie](https://www.geeksforgeeks.org/trie-insert-and-search/)
 
- 	Data Structure can be used in computing distinct substring or more substring problems.
+ 	Data Structure can be used in computing distinct substring or more substring problems.</br>
 eg [problem](https://codeforces.com/contest/271/problem/D) [code](https://codeforces.com/contest/271/submission/61939688)
-and also search insearch time complexity can be reduced from O(no. of words) to O(length of word) and also string 	sorting in O(sum of length of all words)
+</br> search time complexity can be reduced from O(no. of words) to O(length of word) </br> string sorting in O(sum of length of all words)
 
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
