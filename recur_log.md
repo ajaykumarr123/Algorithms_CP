@@ -1,4 +1,3 @@
-```
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
@@ -65,22 +64,22 @@ void expo(ll k,int n)
             mult(temp,mat,n);
     }
 }
-int fib(int n,int m)
+int fib(int n)
 {
-    int te=(m%mod-1+mod)%mod;
+    
     if(n==1)
-        return te;
+        return 2;
     if(n==0)
         return 1;
-        if(n<0)
+    if(n<0)
         return 0; 
 
-    mat[0][0]=te;
-    mat[0][1]=te;
+    mat[0][0]=2;
+    mat[0][1]=2;
     mat[1][0]=1;
     mat[1][1]=0;
     expo(n-1,2);
-    int ans=(te*mat[0][0])%mod+mat[0][1];
+    int ans=(2*mat[0][0])%mod+mat[0][1];
     ans%=mod;
     return ans;
 
@@ -91,31 +90,19 @@ int32_t main()
 {
     IOS
 
-     #ifndef ONLINE_JUDGE    
-    freopen("input.txt", "r", stdin);    
-    #endif        
+    //  #ifndef ONLINE_JUDGE    
+    // freopen("input.txt", "r", stdin);    
+    // #endif        
         
      int t;
      cin>>t;
      while(t--)
      {
-        int n,m;
-        cin>>n>>m;
-        int pre,pre1;
-        int p=fib(n-2,m);
-        int q=fib(n-1,m);
-        //cout<<p<<" "<<q<<endl;
-        pre=p;
-        pre%=mod;
-        pre1=q;
-        pre1%=mod;
-        pre*=(m%mod);
-        pre1*=(m%mod);
-        int ans=pre+pre1;
-        ans%=mod;
+        int n;
+        cin>>n;
+    
+        int ans=fib(n);
+        
         cout<<ans<<endl;    
      }
 }
-```
- 
- 
