@@ -182,6 +182,185 @@ int32_t main()
 }     
 ```
 
+(answer of previous problem)
+range update using lazy propagation 
+```
+#include<bits/stdc++.h>
+#include<unordered_map>
+#define M 1000000007
+#define T 998244353
+#define PI 3.142
+#define ll long long
+#define MAXN 100001
+
+
+using namespace std;
+ll tx[4*MAXN], tn[4*MAXN], lx[4*MAXN], ln[4*MAXN];
+ll maxi(ll a, ll b)
+{
+    return (a>b)?a:b;
+}
+ll mini(ll a, ll b)
+{
+    return (a<b)?a:b;
+}
+void buildx(ll pre[], ll v, ll tl, ll tr)
+{
+    if(tl==tr){
+        tx[v] = pre[tl];
+    }
+    else {
+        ll tm = (tl+tr)/2;
+        buildx(pre, 2*v, tl, tm);
+        buildx(pre, 2*v+1, tm+1, tr);
+        tx[v] = maxi(tx[2*v], tx[2*v+1]);
+    }
+}
+void buildn(ll pre[], ll v, ll tl, ll tr)
+{
+    if(tl==tr){
+        tn[v] = pre[tl];
+    }
+    else {
+        ll tm = (tl+tr)/2;
+        buildn(pre, 2*v, tl, tm);
+        buildn(pre, 2*v+1, tm+1, tr);
+        tn[v] = mini(tn[2*v], tn[2*v+1]);
+    }
+}
+void pushx(ll v)
+{
+    tx[2*v] += lx[v];
+    lx[2*v] += lx[v];
+    tx[2*v+1] += lx[v];
+    lx[2*v+1] += lx[v];
+    lx[v]=0;
+}
+void pushn(ll v)
+{
+    tn[2*v] += ln[v];
+    ln[2*v] += ln[v];
+    tn[2*v+1] += ln[v];
+    ln[2*v+1] += ln[v];
+    ln[v]=0;
+}
+void updatex(ll v, ll tl, ll tr, ll l, ll r, ll add){
+    if(l>r){
+        return;
+    }
+    if(l==tl && tr==r){
+        tx[v] += add;
+        lx[v] += add;
+    }
+    else {
+        pushx(v);
+        ll tm = (tl+tr)/2;
+        updatex(2*v, tl, tm, l, mini(r, tm), add);
+        updatex(2*v+1, tm+1, tr, maxi(l, tm+1), r, add);
+        tx[v] = maxi(tx[2*v], tx[2*v+1]);
+    }
+}
+void updaten(ll v, ll tl, ll tr, ll l, ll r, ll add){
+    if(l>r){
+        return;
+    }
+    if(l==tl && tr==r){
+        tn[v] += add;
+        ln[v] += add;
+    }
+    else {
+        pushn(v);
+        ll tm = (tl+tr)/2;
+        updaten(2*v, tl, tm, l, mini(r, tm), add);
+        updaten(2*v+1, tm+1, tr, maxi(l, tm+1), r, add);
+        tn[v] = mini(tn[2*v], tn[2*v+1]);
+    }
+}
+ll qux(ll v, ll tl, ll tr, ll l, ll r)
+{
+    if(l>r){
+        return INT64_MIN;
+    }
+    if(l==tl && r==tr){
+        return tx[v];
+    }
+    pushx(v);
+    ll tm = (tl+tr)/2;
+    return maxi(qux(2*v, tl, tm, l, mini(r, tm)), qux(2*v+1, tm+1, tr, maxi(l, tm+1), r));
+}
+ll qun(ll v, ll tl, ll tr, ll l, ll r)
+{
+    if(l>r){
+        return INT64_MAX;
+    }
+    if(l==tl && r==tr){
+        return tn[v];
+    }
+    pushn(v);
+    ll tm = (tl+tr)/2;
+    return mini(qun(2*v, tl, tm, l, mini(r, tm)), qun(2*v+1, tm+1, tr, maxi(l, tm+1), r));
+}
+void solve()
+{
+    ll n, q, i, x, y, ans1, ans2, v, dif;
+    cin >> n >> q;
+    ll b[n], pre[n];
+    for(i=0; i<n; i++){
+        cin >> b[i];
+    }
+    pre[0]=b[0];
+    for(i=1; i<n; i++){
+        pre[i] = pre[i-1]+b[i];
+    }
+    for(i=1; i<=4*n; i++){
+        lx[i]=0;
+	ly[i]=0;
+    }
+    
+    
+    buildx(pre, 1, 0, n-1);
+    buildn(pre, 1, 0, n-1);
+    for(i=0; i<q; i++){
+        char ch;
+        cin >> ch;
+        if(ch=='Q'){
+            cin >> x >> y;
+            x--;
+            y--;
+            ans1 = qux(1, 0, n-1, y, n-1);
+            ans2 = qun(1, 0, n-1, 0, x-1);
+            if(ans2>0){
+                ans2 = 0;
+            }
+            cout << ans1 - ans2 << "\n";
+        }
+        else {
+            cin >> x >> v;
+            x--;
+            dif = v - b[x];
+            b[x]=v;
+            updatex(1, 0, n-1, x, n-1, dif);
+            updaten(1, 0, n-1, x, n-1, dif);
+        }
+    }
+}
+signed main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+
+    int _t;cin >> _t; while(_t--)
+    solve();
+
+    return 0;
+}
+```
+
 ### general(basic version)
 ```
 //segment tree(RMQ) 
