@@ -1,17 +1,20 @@
 # ordered set
-```// C++ program to demonstrate the 
+```
 // ordered set in GNU C++ 
 #include <bits/stdc++.h> 
 using namespace std; 
 
-// Header files, namespaces, 
-// macros as defined above 
+/*****************************************/
 #include <ext/pb_ds/assoc_container.hpp> 
 #include <ext/pb_ds/tree_policy.hpp> 
 using namespace __gnu_pbds; 
 
 #define ordered_set tree<pair<int,int>, null_type,less<pair<int,int>>, rb_tree_tag,tree_order_statistics_node_update> 
-// Driver program to test above functions 
+//find_by_order(k)  returns iterator to kth element starting from 0;
+//order_of_key(k) returns count of elements strictly smaller than k;
+//erase,insert same as normal set
+/*****************************************/
+
 int main() 
 { 
 	// Ordered set declared with name o_set 
@@ -59,7 +62,10 @@ int main()
 
 ```
 
-# segment tree(good implementation)
+# segment tree
+### (good Implim.)
+for maximun prefix sum or suffix sum or sum in query range 
+for eg- query(2,4) its prefix will give max(a2,a2+a3,a2+a3+a4) starting from l(not 0) similary for suffix starting from r(not n-1)
 [problem](https://www.codechef.com/problems/MAXBTY)
 
 ``` 
@@ -69,13 +75,6 @@ using namespace std;
 
 #define int long long int
 #define ll int
-
- //using namespace __gnu_pbds;
- //#define ordered_set tree<pair<int,int>, null_type,less<pair<int,int>>, rb_tree_tag,tree_order_statistics_node_update>
-//find_by_order(k)  returns iterator to kth element starting from 0;
-//order_of_key(k) returns count of elements strictly smaller than k;
-//erase,insert same as normal set
-// mt19937 mrand(chrono::high_resolution_clock::now().time_since_epoch().count()); for randomized solution
 
 int n;
 int a[100001];
