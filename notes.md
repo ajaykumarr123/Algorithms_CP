@@ -1,7 +1,9 @@
 
 #### Try stress test(algo. toolbox) to remove error
-* ### [DP with Bitsmask](https://codingblocks.com/resources/dp-webinar2/)
-    [Tshirts](https://www.codechef.com/problems/TSHIRTS)
+* ### [Maximum Subarray Sum in a given Range](https://www.geeksforgeeks.org/range-query-largest-sum-contiguous-subarray/)
+* ### [LCA using RMQ](https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-3-using-rmq/?ref=rp)
+* ## [DP with Bitsmask](https://codingblocks.com/resources/dp-webinar2/)
+     see submissions of this [Tshirts](https://www.codechef.com/problems/TSHIRTS)
 
 
 ```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
