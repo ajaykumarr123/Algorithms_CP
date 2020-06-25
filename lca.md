@@ -1,3 +1,4 @@
+#### [Centroid decomposition & lca](https://codeforces.com/contest/342/submission/81042084)
 ### lca using Binary lifting
 ```  
 //just call preprocess(root)
