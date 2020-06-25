@@ -60,9 +60,7 @@ void preprocess(int root) {
     dfs(root, root);
 }
 ```
-### lca using RMQ
+### [lca using RMQ](https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-3-using-rmq/)
 ```
-
-
 
 ```
