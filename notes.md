@@ -16,7 +16,12 @@ eg [problem](https://codeforces.com/contest/271/problem/D) [code](https://codefo
 * In an sorted vector </br>
                       lower_bound() can be used to count number of < numbers or get pointer of first >= number.</br>
                       upper_bound() can be used to count number of <= number or get pointer of first > number.
-
+* find and remove all values=x
+```
+vec.erase(std::remove(vec.begin(), vec.end(), x), vec.end());
+```
+This combination is also known as the erase-remove idiom.
+	
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
    memset(arr, 0, sizeof(arr));
