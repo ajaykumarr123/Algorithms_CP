@@ -73,7 +73,7 @@ int main()
  return 0;
 }
 ```
-## XOR MAX ([problem])(https://codeforces.com/contest/282/problem/E)
+## XOR MAX ([problem](https://codeforces.com/contest/282/problem/E))
 ```
 //In the name of God
 #include <iostream>
