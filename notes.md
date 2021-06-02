@@ -21,6 +21,8 @@ eg [problem](https://codeforces.com/contest/271/problem/D) [code](https://codefo
 vec.erase(std::remove(vec.begin(), vec.end(), x), vec.end());
 ```
 This combination is also known as the erase-remove idiom.
+
+* The **Chicken McNugget Theorem** (or Frobenius Coin Problem) states that for any two relatively prime positive integers m,n, the greatest integer that cannot be written in the form **am + bn** for nonnegative integers a, b is ***mn-m-n***.
 	
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
