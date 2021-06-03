@@ -1,28 +1,27 @@
 
 #### Try stress test(algo. toolbox) to remove error
-* ### [Maximum Subarray Sum in a given Range](https://www.geeksforgeeks.org/range-query-largest-sum-contiguous-subarray/)
-* ### [LCA using RMQ](https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-3-using-rmq/?ref=rp)
-* ## [DP with Bitsmask](https://codingblocks.com/resources/dp-webinar2/)
-     see submissions of this [Tshirts](https://www.codechef.com/problems/TSHIRTS)
+### [Maximum Subarray Sum in a given Range](https://www.geeksforgeeks.org/range-query-largest-sum-contiguous-subarray/)
+### [LCA using RMQ](https://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-tree-set-3-using-rmq/?ref=rp)
+### [DP with Bitsmask](https://codingblocks.com/resources/dp-webinar2/)
+-> see submissions of this [Tshirts](https://www.codechef.com/problems/TSHIRTS)
 
 
-```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
-* [Trie](https://www.geeksforgeeks.org/trie-insert-and-search/)
-
- 	Data Structure can be used in computing distinct substring or more substring problems.</br>
+* ```cout << fixed << setprecision(9);```  //to change decimal precision - use once in beg. of main
+* [Trie](https://www.geeksforgeeks.org/trie-insert-and-search/) Data Structure can be used in computing distinct substring or more substring problems.</br>
 eg [problem](https://codeforces.com/contest/271/problem/D) [code](https://codeforces.com/contest/271/submission/61939688)
 </br> search time complexity can be reduced from O(no. of words) to O(length of word) </br> string sorting in O(sum of length of all words)
 
 * In an sorted vector </br>
                       lower_bound() can be used to count number of < numbers or get pointer of first >= number.</br>
                       upper_bound() can be used to count number of <= number or get pointer of first > number.
-* find and remove all values=x in vector(used to remove edge in graph)
-```
-vec.erase(std::remove(vec.begin(), vec.end(), x), vec.end());
-```
-This combination is also known as the erase-remove idiom.
+* find and remove all values=x in vector(used to remove edge in graph)</br>
+```vec.erase(std::remove(vec.begin(), vec.end(), x), vec.end());``` 
+</br>This combination is also known as the erase-remove idiom.
 
 * The **Chicken McNugget Theorem** (or Frobenius Coin Problem) states that for any two relatively prime positive integers m,n, the greatest integer that cannot be written in the form **am + bn** for nonnegative integers a, b is ***mn-m-n***.
+
+* [Inversion](https://www.geeksforgeeks.org/counting-inversions/) Count for an array indicates – how far (or close) the array is from being sorted.<br>
+   The number of adjacent swaps needed to sort is equal to the number of inversions. 
 	
 * In C++, to set them all to 0, you can use something like std::fill_n (from <algorithm>): </br>
    std::fill_n(arr, 100, 0); or
