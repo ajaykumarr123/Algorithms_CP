@@ -66,102 +66,111 @@ int main()
 ### General(basic version)
 ```
 //segment tree(RMQ) 
-//0-indexed
+/********************************************************************************/
+/********************************************************************************/
+#pragma GCC optimize("Ofast")
 #include <bits/stdc++.h>
 using namespace std;
-const int maxn=100000;
-int n,t[4*maxn];
-int construct(int* arr,  int st, int end, int si)
+
+#define int long long int
+#define pb push_back
+#define mp make_pair
+#define all(x) x.begin(), x.end()
+const double PI = 4*atan(1);
+
+#define loop(i,n) for(int i=0;i<n;i++)
+#define itr(it,v)  for(auto it=v.begin();it!=v.end();++it)  
+#define IOS ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define debug(x) cout << "[ " << #x  << " : " << x << " ]" << endl ;
+#define MOD (int)(1e9+7)
+const int MAXN = 1e5+1;
+int arr[MAXN];
+int t[4*MAXN];
+
+
+void build(int index,int l,int r)
 {
-    if(st==end)
-    {
-        t[si] = arr[st];
-        return t[si];
-    }
-    
-    int mid = (st + end)/2;
-    construct(arr,st, mid, 2*si + 1);
-    construct(arr,mid+1, end, 2*si + 2);
-    t[si] = min(t[2*si+1],t[2*si+2]);
-    return t[si];
+  if(l==r)
+  {
+    t[index]=arr[l];
+    return;
+  }
+  int mid= (l+r)/2;
+  build(index*2,l,mid);
+  build(index*2+1,mid+1,r);
+
+  t[index]=t[2*index]+t[2*index+1];
 }
 
-int query(int qs, int qe, int ss, int se, int si)
+void update(int index,int l,int r,int pos,int val)
 {
-    if(qs<=ss && qe>=se)
-       return t[si];
-    
-    if(qs>se || qe<ss)
-       return INT_MAX;          //change  acc. to question
-    
-    int mid = (ss + se)/2;
-    int sum = min(query(qs, qe, ss, mid, 2*si + 1), query(qs, qe, mid+1, se, 2*si + 2));
-    return sum;
+  if(pos<l or pos>r)
+    return;
+  if(l==r)
+  { 
+    t[index]= val;
+    arr[l]=val;
+    return;
+  }
+  int mid= (l+r)/2;
+  update(index*2,l,mid,pos,val);
+  update(index*2+1,mid+1,r,pos,val);
+
+  t[index]=t[2*index]+t[2*index+1];
 }
 
-void update( int x, int pos, int ss, int se, int si)
-{   
-    if(ss==se)
-    {
-        t[si] =  x;
-        return;
-    }
-    
-    int mid = (ss + se)/2;
-    if(pos<=mid)
-      update( x, pos, ss, mid, 2*si + 1);
-    else
-      update(x, pos, mid+1, se, 2*si + 2);
-
-    t[si] = min(t[2*si+1] , t[2*si+2]);     
-}
-
-int main()
-{  
-     #ifndef ONLINE_JUDGE
-      freopen("input.txt","r",stdin);
-      freopen("output.txt","w",stdout);
-      #endif
+int query(int index,int l,int r,int lq,int rq)
+{
+  if(l>rq or r<lq)
+    return 0;   
   
-    cin>>n;
-    
-    int* arr = new int[n];
-    for(int i=0; i<n; i++)
-      cin>>arr[i];
-    
- 
-    for(int i=0; i<=4*n; i++)
-      t[i] = -1;
+  if(lq<=l and r<=rq)
+    return t[index];
 
-    construct(arr, 0, n-1, 0);
-    
-    int qs;
-    int qe;
-    cin>>qs>>qe;
-    
-    int sum = query(qs, qe, 0, n-1, 0);
-    
-    for(int i=0; i<=4*n; i++)
+  int mid=(l+r)/2;
+  return query(index*2,l,mid,lq,rq)+query(index*2+1,mid+1,r,lq,rq);
+}
+
+
+int32_t main()
+{ IOS
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+    #endif
+
+    int n;
+    cin>>n;
+
+    for (int i = 0; i < n; ++i)
     {
-        if(t[i]==-1)
-          cout<<"dummy ";
-        else
-          cout<<t[i]<<" ";
+      cin>>arr[i];
     }
-    cout<<endl;
-    cout<<sum<<endl;
-    
-    int add;
-    cin>>add;
-    int index;
-    cin>>index;
-    
-    update(add, index, 0, n-1, 0);
-    cin>>qs>>qe;
-    
-    int sum1 = query(qs, qe, 0, n-1, 0);
-    cout<<sum1<<endl;
-    
+
+    build(1,0,n-1);
+    int q;
+    cin>>q;
+
+    while(q--)
+    {
+      int ch;
+      cin>>ch;
+
+      if(ch==1)
+      {
+        int x,v;
+        cin>>x>>v;
+
+        update(1,0,n-1,x,v); 
+      }
+      else
+      {
+        int l,r;
+        cin>>l>>r;
+        cout<<query(1,0,n-1,l,r);
+      }
+    } 
+      return 0; 
 }
 ```
 # range update using lazy propagation 
